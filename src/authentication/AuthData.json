@@ -1,0 +1,42 @@
+{
+    "dummyUsers": [
+        {
+            "firstname": "Jean-Michel",
+            "lastname": "Michel",
+            "claims": [
+                {
+                    "id": "PEON_ACCESS",
+                    "name": "PEON"
+                }
+            ]
+        },
+        {
+            "firstname": "Epic",
+            "lastname": "Sax Guy",
+            "claims": [
+                {
+                    "id": "HERO_ACCESS",
+                    "name": "HERO"
+                }
+            ]
+        },
+        {
+            "firstname": "Kakarot",
+            "lastname": "Sangoku",
+            "claims": [
+                {
+                    "id": "PEON_ACCESS",
+                    "name": "PEON"
+                },
+                {
+                    "id": "HERO_ACCESS",
+                    "name": "HERO"
+                },
+                {
+                    "id": "GODLIKE_ACCESS",
+                    "name": "GODLIKE"
+                }
+            ]
+        }
+    ]
+}

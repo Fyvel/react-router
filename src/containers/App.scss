@@ -1,0 +1,23 @@
+.App-header {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 5px;
+}
+
+.App-link,
+.App-link:visited {
+  color: #09d3ac;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.Profile {
+  padding: 14px;
+  background-color: #424242;
+}
