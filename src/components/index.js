@@ -4,6 +4,7 @@ import Layout from './layout/Layout'
 import Profile from './profile/Profile'
 import Router from './router/Router'
 import SignIn from './sign-in/SignIn'
+import Unauthorized from './unauthorized/Unauthorized'
 
 export {
     Admin,
@@ -11,5 +12,6 @@ export {
     Layout,
     Profile,
     Router,
-    SignIn
+    SignIn,
+    Unauthorized
 }
