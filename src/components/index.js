@@ -1,7 +1,7 @@
-import Admin from './admin/Admin'
+import {Admin, SuperAdmin} from './admin/Admin'
 import Home from './home/Home'
 import Layout from './layout/Layout'
-import Profile from './profile/Profile'
+import { Profile, ProfileDetails } from './profile/Profile'
 import Router from './router/Router'
 import SignIn from './sign-in/SignIn'
 import Unauthorized from './unauthorized/Unauthorized'
@@ -11,7 +11,9 @@ export {
     Home,
     Layout,
     Profile,
+    ProfileDetails,
     Router,
     SignIn,
+    SuperAdmin,
     Unauthorized
 }

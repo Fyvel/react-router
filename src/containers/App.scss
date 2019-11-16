@@ -5,6 +5,7 @@
   background-color: #282c34;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 5px;
 }
 
 .App-link,
@@ -14,4 +15,9 @@
   &:hover {
     color: #fff;
   }
+}
+
+.Profile {
+  padding: 14px;
+  background-color: #424242;
 }

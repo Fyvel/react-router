@@ -1,9 +1,16 @@
 import React from "react";
 import { Route, Switch, Redirect, useHistory, useLocation } from "react-router-dom";
 
-import { Home, Profile, SignIn, Admin, Unauthorized } from '..'
+import {
+    Home,
+    Profile,
+    ProfileDetails,
+    SignIn,
+    Admin,
+    Unauthorized,
+    SuperAdmin
+} from '..'
 import { useAuthContext } from "../../authentication";
-import * as Role from "../../authentication/roles";
 
 // wrapper to redirect not authenticated user
 const PrivateRoute = ({ children, ...rest }) => {
@@ -29,25 +36,22 @@ const AdminRoute = ({ children, claimsRequired, ...rest }) => {
     return (
         <Route
             {...rest}
-            render={props => {
-                return user
-                    ? (user.claims || []).find(x => x === claimsRequired)
-                        ? (children)
-                        : (<Redirect
-                            to={{
-                                pathname: "/unauthorized",
-                                state: { claims: [...user.claims] }
-                            }}
-                        />)
+            render={props => user
+                ? (user.claims || []).find(x => x.id === claimsRequired)
+                    ? (children)
                     : (<Redirect
                         to={{
-                            pathname: "/signin",
-                            state: {
-                                from: props.location
-                            }
-                        }}
-                    />)
-            }}
+                            pathname: "/unauthorized",
+                            state: { claims: [...user.claims] }
+                        }} />)
+                : (<Redirect
+                    to={{
+                        pathname: "/signin",
+                        state: {
+                            from: props.location
+                        }
+                    }}
+                />)}
         />)
 }
 
@@ -64,14 +68,18 @@ const Router = () => {
             <Route path="/signin">
                 <SignIn callback={() => history.replace(from)} />
             </Route>
-            <Route path="/unauthorized">
+            <PrivateRoute path="/unauthorized">
                 <Unauthorized />
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/profile">
                 <Profile />
+            <ProfileDetails />
             </PrivateRoute>
-            <AdminRoute path="/admin" claimsRequired={Role.GODLIKE}>
+            <AdminRoute path="/admin" claimsRequired={"HERO_ACCESS"}>
                 <Admin />
+            </AdminRoute>
+            <AdminRoute path="/super-admin" claimsRequired={"GODLIKE_ACCESS"}>
+                <SuperAdmin />
             </AdminRoute>
             <Redirect exact path="/" to="/home" />
         </Switch>

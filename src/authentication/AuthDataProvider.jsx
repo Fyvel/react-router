@@ -4,15 +4,8 @@ import React, {
     useMemo,
     useContext
 } from "react";
-import * as Role from './roles'
 
-const initialState = {
-    user: {
-        firstname: 'Jean-Michel',
-        lastname: 'Michel',
-        claims: [Role.PEON]
-    }
-}
+const initialState = { user: null };
 
 const AuthDataProvider = props => {
     const [user, setUser] = useState(initialState)

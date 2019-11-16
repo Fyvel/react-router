@@ -1,25 +1,26 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Button from '@material-ui/core/Button';
 
 import { useAuthContext } from "../../authentication";
 
-const Profile = () => {
+export const Profile = () => {
     const { user, onLogout } = useAuthContext();
     return (
-        <Fragment>
-            <h1>
-                <span role="img" aria-label="emoji">🙋‍♂️</span>
-                Hello
-                <br />
-                {user.firstname} {user.lastname}
-            </h1>
+        <div className="Profile">
+            <span role="img" aria-label="emoji">🙋‍♂️</span>
+            Hello
+            <br />
+            {user.firstname} {user.lastname}
+            <br />
             <Button
                 variant="outlined"
                 color="secondary"
                 onClick={onLogout}>
                 LOG OUT
             </Button>
-        </Fragment>)
+        </div>)
 }
 
-export default Profile
+export const ProfileDetails = () => (
+    <h1>Profile details / settings</h1>
+)

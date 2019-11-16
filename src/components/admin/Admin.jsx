@@ -1,9 +1,13 @@
 import React from "react";
 
-const Admin = () => (
+export const Admin = () => (
     <h1>
         <span role="img" aria-label="emoji">🎈</span>
         Admin stuff
     </h1>)
 
-export default Admin;
+export const SuperAdmin = () => (
+    <h1>
+        <span role="img" aria-label="emoji">🏓</span>
+        Super Admin stuff
+    </h1>)

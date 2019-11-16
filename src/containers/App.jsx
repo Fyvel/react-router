@@ -13,7 +13,8 @@ const App = () => (
         <div className="App-header">
           <Link className="App-link" to="/home">Home (Public)</Link>
           <Link className="App-link" to="/profile">Profile (Login required)</Link>
-          <Link className="App-link" to="/admin">Admin (Access required)</Link>
+          <Link className="App-link" to="/admin">Admin (Hero Access required)</Link>
+          <Link className="App-link" to="/super-admin">Super Admin (Godlike Access required)</Link>
         </div>
         <Layout>
           <Router />

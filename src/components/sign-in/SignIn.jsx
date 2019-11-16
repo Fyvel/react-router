@@ -1,24 +1,27 @@
 import React, { Fragment } from "react";
 import Button from '@material-ui/core/Button';
 import { useAuthContext } from "../../authentication";
-import * as Role from '../../authentication/roles';
+import * as AuthService from '../../authentication/AuthService';
 
 const SignIn = props => {
     // get the login from our context
     const { onLogin } = useAuthContext()
 
-    const signInHandler = () => {
+    const user = AuthService.getPeon
+    const heroUser = AuthService.getHero
+    const godlikeUser = AuthService.getGodlike
+
+    const signInHandler = user => () => {
         // whatever should be handle here (form / input)
         console.log('singing in')
         onLogin({
-            user: {
-                firstname: 'Kakarot',
-                lastname: 'Sangoku',
-                claims: [Role.GODLIKE]
-            }
+            user: user()
         })
         return props.callback()
     }
+    const signInWithPeonHandler = signInHandler(user)
+    const signInWithHeroHandler = signInHandler(heroUser)
+    const signInWithGodlikeHandler = signInHandler(godlikeUser)
 
     return (
         <Fragment>
@@ -29,8 +32,22 @@ const SignIn = props => {
             <Button
                 variant="contained"
                 color="primary"
-                onClick={signInHandler}>
+                onClick={signInWithPeonHandler}>
                 SIGN IN
+            </Button>
+            <br />
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={signInWithHeroHandler}>
+                SIGN IN (admin)
+            </Button>
+            <br />
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={signInWithGodlikeHandler}>
+                SIGN IN (super admin)
             </Button>
         </Fragment>)
 }

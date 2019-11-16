@@ -7,9 +7,9 @@ const Unauthorized = () => {
         <Fragment>
             <h1>
                 <span role="img" aria-label="emoji">🔒</span>
-                Access denied
+                ACCESS DENIED
             </h1>
-            Your only have {user.claims.join(' ')}!
+            Here are you perissions: {user.claims.map(x => x.name).join(', ')}!
         </Fragment>
     )
 }
