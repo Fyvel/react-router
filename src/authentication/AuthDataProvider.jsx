@@ -24,7 +24,7 @@ const AuthDataProvider = props => {
     return <AuthContext.Provider value={auth} {...props} />
 }
 
-export const AuthContext = createContext()
+const AuthContext = createContext()
 // here is a custom hooks (just delegates the useContext)
 export const useAuthContext = () => useContext(AuthContext)
 

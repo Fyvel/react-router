@@ -1,7 +1,6 @@
-import AuthDataProvider, { AuthContext, useAuthContext } from './AuthDataProvider'
+import AuthDataProvider, { useAuthContext } from './AuthDataProvider'
 
 export {
     AuthDataProvider,
-    AuthContext,
     useAuthContext
 }
